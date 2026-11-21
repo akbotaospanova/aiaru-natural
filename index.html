@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIARU NATURAL — шырша бүрі</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap&subset=cyrillic-ext" rel="stylesheet">
+<style>
+/* VOICE: тыныш, ғылыми, табиғи — орман таңы мен зертхана журналы
+   IDEA: жоба «AIARU NATURAL» өнім жапсырмасы сияқты — алтын жиек, жасыл белдеу, кілегей қағаз
+   PICTURE: айналатын 3D Шренк шыршасының бүрі; қабыршақтары ашылып, тұқымдары түседі
+   COLOUR and TYPE: терең шырша жасылы, кілегей, алтын екпін; Lora тақырыптар + Montserrat мәтін
+   LAYOUT: толық енді белдеулер, жабысқақ мазмұн жолағы, 1240px контент, телефонда бір баған */
+:root{color-scheme:light dark;
+--bg:light-dark(#f7f2e4,#0b1d15);--ink:light-dark(#16261d,#efe9d8);--soft:light-dark(#56645a,#b3bfb3);
+--card:light-dark(#fffdf6,#12291e);--line:light-dark(#e2d8bd,#244333);
+--pine:#0f3b28;--pine2:#1d5a3c;--gold:#c8a24c;--gold2:light-dark(#9a7426,#e0c27a);--cone:#7a4a26}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Montserrat,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Lora,Georgia,serif;line-height:1.08;text-wrap:balance;margin:0 0 .5em}
+h2{font-size:clamp(30px,4vw,46px)}h3{font-size:21px;line-height:1.25}
+p{margin:0 0 1em;max-width:70ch}
+img{max-width:100%;display:block}
+a{color:inherit}
+.band{padding:clamp(36px,5vw,80px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.lead{font-size:17px;color:var(--soft);max-width:66ch}
+.dark{background:var(--pine);color:#efe9d8;--soft:#bcd0c0;--card:#174a33;--line:#2c6447;--ink:#efe9d8}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{margin-bottom:.4em}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+ul.clean{margin:0;padding-left:1.15em}ul.clean li{margin:.25em 0}
+.note{border-radius:14px;padding:14px 18px;background:light-dark(#fbf1d6,#2a2a16);border:1px solid light-dark(#ecd79c,#5a5226);font-size:15px}
+.dark .note{background:#1f4a2f;border-color:#3d7350}
+.fig{position:relative;min-height:340px}.fig>svg,.fig>canvas{position:absolute;inset:0;width:100%;height:100%}
+.scroll{overflow-x:auto}.scroll a{flex:none}html{scroll-padding-top:72px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;background:light-dark(#efe6cc,#173726)}
+.dark th{background:#174a33}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;font-weight:600;color:var(--soft)}.stack td:empty{display:none}}
+button,input,select{font:inherit}
+.btn{min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid var(--gold);background:transparent;color:inherit;cursor:pointer;font-weight:600}
+.btn.on,.btn:hover{background:var(--gold);color:#1a1a0c}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+/* nav */
+nav.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--pine) 94%,transparent);backdrop-filter:blur(8px);color:#efe9d8}
+nav.top .row{display:flex;gap:6px;align-items:center;padding:8px max(5vw,16px);max-width:1340px;margin:0 auto}
+nav.top b{font-family:Lora,serif;font-size:18px;letter-spacing:.04em;margin-right:12px;flex:none}
+nav.top a{text-decoration:none;padding:10px 12px;border-radius:999px;font-size:14px;white-space:nowrap}
+nav.top a:hover{background:#ffffff1c}
+@media(max-width:900px){nav.top{position:static}}
+/* hero */
+.hero{position:relative;background:radial-gradient(120% 90% at 75% 40%,#2b6b48 0%,#123f2b 45%,#0a2619 100%);color:#efe9d8;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:center;min-height:min(86vh,760px);padding:40px 0}
+.hero h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:.35em}
+.hero .sub{font-size:18px;color:#cfe0d2;max-width:34ch}
+.brand{font-family:Lora,serif;font-weight:700;letter-spacing:.08em;color:var(--gold);font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.brand:before,.brand:after{content:"";height:1px;width:34px;background:var(--gold)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px;margin-top:26px}
+.meta div{border:1px solid #ffffff2a;border-radius:14px;padding:10px 14px;background:#ffffff0d;font-size:14px}
+.meta span{display:block;color:#a9c4b0;font-size:13px}
+.stage{position:relative;height:min(78vh,640px);min-height:420px}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+.stage canvas:active{cursor:grabbing}
+.stage .ctl{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;background:#0a2619cc;border:1px solid #ffffff22;border-radius:22px;padding:8px 12px;width:max-content;max-width:100%}
+.stage label{font-size:13px;display:flex;align-items:center;gap:8px}
+.stage input[type=range]{width:130px;accent-color:var(--gold)}
+.stage .hint{position:absolute;top:8px;right:8px;font-size:13px;color:#a9c4b0}
+.stage .fallback{position:absolute;inset:0;display:none;object-fit:contain}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;min-height:0}.stage{height:460px}}
+/* author */
+.author{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;align-items:center}
+.author img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;border:4px solid var(--gold)}
+@media(max-width:640px){.author{grid-template-columns:1fr}.author img{max-width:240px}}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.pane[hidden]{display:none}
+/* taxonomy */
+.taxo{display:grid;gap:8px;perspective:900px}
+.taxo div{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--pine2),var(--pine));color:#efe9d8;transform:rotateX(14deg);transform-origin:bottom;box-shadow:0 8px 18px #0003;transition:transform .3s}
+.taxo div:hover{transform:rotateX(0) translateY(-2px)}
+.taxo span{color:#bcd0c0;font-size:13px;flex:none}.taxo b{font-weight:600;text-align:right}
+/* tree */
+.tree{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+.tree svg{width:100%;max-height:460px}
+.tree .part{cursor:pointer;transition:opacity .2s}
+.tree svg:hover .part{opacity:.55}.tree svg .part:hover,.tree svg .part.sel{opacity:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+@media(max-width:760px){.tree{grid-template-columns:1fr}}
+/* flip */
+.flip{perspective:1000px;min-height:180px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;min-height:180px;transition:transform .7s;transform-style:preserve-3d}
+.flip:hover .in,.flip.on .in,.flip:focus-within .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:center}
+.flip .f{background:var(--card);border:1px solid var(--line)}
+.flip .f b{font-family:Lora,serif;font-size:22px}.flip .f small{color:var(--soft)}
+.flip .b{background:var(--pine);color:#efe9d8;transform:rotateY(180deg);font-size:15px}
+.flip .b em{color:var(--gold);font-style:normal;font-weight:600;display:block;margin-bottom:6px}
+/* organs */
+.org{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
+.org div{border-radius:16px;padding:16px;background:var(--card);border:1px solid var(--line)}
+.org svg{width:38px;height:38px;color:var(--pine2);margin-bottom:6px}
+.org b{display:block}
+/* photos */
+.ph{border-radius:18px;overflow:hidden;background:#0002;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover}
+figcaption{font-size:14px;color:var(--soft);padding-top:8px}
+/* before-after */
+.ba{position:relative;overflow:hidden;border-radius:18px;user-select:none;background:#000}
+.ba img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ba .top{clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;background:var(--gold);transform:translateX(-50%);pointer-events:none}
+.ba .bar:after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--gold);color:#1a1a0c;display:grid;place-items:center;font-weight:700}
+.ba .tag{position:absolute;top:10px;padding:4px 10px;border-radius:999px;background:#000a;color:#fff;font-size:13px;pointer-events:none}
+.ba .l{left:10px}.ba .r{right:10px}
+/* carousel */
+.car{position:relative;height:440px;perspective:1400px;margin-top:10px}
+.ring{position:absolute;left:50%;top:20px;width:220px;height:330px;margin-left:-110px;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ring figure{position:absolute;inset:0;margin:0;display:grid;place-items:center;backface-visibility:hidden;cursor:pointer}
+.ring img{max-height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 18px 22px #0006);border-radius:14px}
+.car .nav{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:10px}
+.pinfo{margin-top:18px}
+@media(max-width:600px){.car{height:380px}.ring{width:170px;height:270px;margin-left:-85px}}
+/* swot */
+.swot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.swot div{border-radius:18px;padding:20px}
+.swot h3{display:flex;gap:10px;align-items:center}
+.swot h3 i{font-style:normal;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#0002;font-family:Lora,serif}
+.s{background:#1d5a3c;color:#efe9d8}.w{background:light-dark(#efe6cc,#23382c)}.o{background:light-dark(#dbe9d3,#1b3a28)}.t{background:light-dark(#f3dcc8,#3a2a1d)}
+@media(max-width:600px){.swot{grid-template-columns:1fr}}
+/* steps */
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;counter-reset:s}
+.road div{position:relative;padding:18px 16px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.road div:before{counter-increment:s;content:counter(s);position:absolute;top:-14px;left:14px;width:32px;height:32px;border-radius:50%;background:var(--gold);color:#1a1a0c;display:grid;place-items:center;font-weight:700}
+ol.steps{padding-left:1.3em;margin:0}ol.steps li{margin:.35em 0}
+/* calc */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+.calc label{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.calc input{font-size:16px;min-height:44px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-align:right;width:100%}
+.big{font-family:Lora,serif;font-size:clamp(44px,7vw,80px);line-height:1;color:var(--gold2);white-space:nowrap}
+.bars div{display:flex;align-items:center;gap:10px;font-size:14px;margin:6px 0}
+.bars i{display:block;height:14px;border-radius:7px;background:var(--pine2);flex:none}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+.quote{font-family:Lora,serif;font-style:italic;font-size:clamp(24px,3.2vw,36px);line-height:1.3;max-width:30ch;margin:0 auto;text-align:center;text-wrap:balance}
+footer{background:#08180f;color:#a9c4b0;font-size:14px}
+ol.refs{columns:2 360px;column-gap:40px;padding-left:1.4em;font-size:15px}ol.refs li{break-inside:avoid;margin:.3em 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.reveal.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ring{transition:none}}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;background:light-dark(#e4eedf,#1d3a2a);font-size:13px;margin:2px 4px 2px 0}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Бөлімдер"><div class="row scroll">
+<b>AIARU</b>
+<a href="#about">Жоба</a><a href="#spruce">Шырша</a><a href="#chem">Құрамы</a><a href="#lab">Зертхана</a><a href="#tech">Технология</a><a href="#results">Нәтиже</a><a href="#brand">Бренд</a><a href="#market">Маркетинг</a><a href="#history">Жоба тарихы</a><a href="#end">Қорытынды</a>
+</div></nav>
+
+<header class="hero">
+<div class="wrap band" style="padding-block:0">
+ <div>
+  <div class="brand">AIARU NATURAL</div>
+  <h1>Шырша қылқаны мен бүрі — табиғи өнім көзі</h1>
+  <p class="sub">Сусын және косметика жасаудың маркетингтік мүмкіндіктері. Іле Алатауына тән Шренк шыршасын (<i>Picea schrenkiana</i>) зерттеу.</p>
+  <div class="meta">
+   <div><span>Орындаған</span>Рахимжан Айару, 9 «Б» сынып</div>
+   <div><span>Ғылыми жетекші</span>Турлашева Алина Маратовна</div>
+   <div><span>Бағыты · секциясы</span>Жаратылыстану-математикалық · Креативті индустрия</div>
+   <div><span>Мектеп · жыл</span>Алматы, Алатау ауданы, №169 мектеп-лицей · 2026</div>
+  </div>
+ </div>
+ <div class="stage" id="stage">
+  <canvas id="cone" aria-label="Шырша бүрінің айналатын 3D моделі"></canvas>
+  <img class="fallback" id="fb" src="img/cones-jar.jpg" alt="Шырша бүрлері">
+  <div class="hint">Тышқанмен немесе саусақпен айналдырыңыз</div>
+  <div class="ctl">
+   <button class="btn on" id="young" type="button">Жас бүр</button>
+   <button class="btn" id="ripe" type="button">Піскен бүр</button>
+   <label>Қабыршақтарды ашу <input type="range" id="open" min="0" max="100" value="12"></label>
+  </div>
+ </div>
+</div>
+</header>
+
+<section class="band" id="about"><div class="wrap">
+ <div class="author reveal">
+  <img src="img/author.jpg" alt="Жоба авторы Рахимжан Айару">
+  <div>
+   <h2>Жоба туралы</h2>
+   <div class="tabs" role="tablist">
+    <button class="btn on" data-tab="kk" type="button">Қазақша</button><button class="btn" data-tab="ru" type="button">Русский</button><button class="btn" data-tab="en" type="button">English</button>
+   </div>
+   <div class="pane" id="p-kk"><p>Бұл ғылыми жоба Алматы өңірінде өсетін Шренк шыршасының қылқаны мен бүрінің биологиялық ерекшеліктерін зерттеуге және оларды табиғи сусындар мен косметикалық өнімдер жасауда пайдалану мүмкіндіктерін қарастыруға арналған. Жоба барысында шыршаның құрылысы, жүйелік орны, табиғаттағы маңызы және қылқанжапырақты өсімдіктерде кездесетін биологиялық белсенді қосылыстар туралы ғылыми мәліметтер жинақталды.</p><p>Практикалық бағыт ретінде «AIARU NATURAL» табиғи өнімдер брендінің тұжырымдамасы әзірленді: шай, тұнба, сабын, сусабын, бет маскасы, скраб және хош иісті өнімдер. Дайын өнімдерді тағамдық немесе косметикалық мақсатта қолдану үшін олардың қауіпсіздігін зертханада тексеру қажет екені анықталды.</p></div>
+   <div class="pane" id="p-ru" hidden><p>Проект посвящён изучению биологических особенностей ели Шренка (Picea schrenkiana), произрастающей в Алматинском регионе, и возможностей использования её хвои и шишек в производстве натуральных напитков и косметики. Изучены строение ели, её систематическое положение, экологическое значение и сведения о биологически активных соединениях хвойных растений.</p><p>Практическая часть — концепция бренда «AIARU NATURAL»: чай, настой, мыло, шампунь, маска для лица, скраб и ароматическая продукция, а также упаковка, хранение, маркетинг, целевая аудитория и экономические перспективы.</p></div>
+   <div class="pane" id="p-en" hidden><p>This project studies the biological characteristics of Schrenk spruce (Picea schrenkiana) growing in the Almaty region and explores the use of its needles and cones in natural beverages and cosmetics. It examines the structure, classification and ecological importance of the tree and the bioactive compounds known in conifers.</p><p>The practical part presents the brand concept “AIARU NATURAL”: spruce needle tea, infusions, soap, shampoo, face masks, scrubs and aromatic products, together with packaging, storage, marketing, target customers and economic prospects.</p></div>
+   <p><span class="pill">Шренк шыршасы</span><span class="pill">қылқан</span><span class="pill">бүр</span><span class="pill">биологиялық белсенді заттар</span><span class="pill">косметика</span><span class="pill">маркетинг</span><span class="pill">креативті индустрия</span></p>
+  </div>
+ </div>
+
+ <div class="grid g3" style="margin-top:36px">
+  <div class="card reveal"><h3>Мақсаты</h3><p>Шренк шыршасының қылқаны мен бүрінің ерекшеліктерін зерттеп, олардан табиғи сусын мен косметикалық өнім жасау мүмкіндіктерін анықтау және «AIARU NATURAL» отандық брендінің тұжырымдамасын әзірлеу.</p></div>
+  <div class="card reveal"><h3>Болжамы</h3><p>Егер қылқан мен бүрдің биологиялық және химиялық ерекшеліктері ғылыми тұрғыдан зерттелсе, оларды табиғи сусын мен косметиканың жаңа түрлерін әзірлеуде пайдалану мүмкіндігі анықталады. Жергілікті шикізатқа негізделген бренд креативті индустрияның жаңа жобасы бола алады.</p></div>
+  <div class="card reveal"><h3>Зерттеу нысаны</h3><p>Алматыдағы Горький атындағы орталық мәдениет және демалыс саябағында өсетін Шренк шыршасы; оның қылқаны мен бүрінің ерекшеліктері, химиялық құрамы және қолданылу мүмкіндіктері.</p></div>
+ </div>
+ <div class="grid g2" style="margin-top:20px">
+  <div class="card reveal"><h3>Міндеттері</h3><ul class="clean">
+   <li>Шренк шыршасының биологиялық ерекшеліктерін, жүйелік орны мен құрылысын зерттеу</li>
+   <li>Қылқан мен бүрдің химиялық құрамы туралы ғылыми ақпарат жинау</li>
+   <li>Шырша шикізатының пайдалы қасиеттері мен ықтимал қауіптерін анықтау</li>
+   <li>Сусын және косметика үлгілерінің тұжырымдамасын әзірлеу</li>
+   <li>Өнімнің дизайны мен қаптамасын жасау</li>
+   <li>Брендтің маркетингтік мүмкіндіктері мен экономикалық тиімділігін бағалау</li></ul></div>
+  <div class="card reveal"><h3>Әдістері</h3><p>
+   <span class="pill">әдебиетке шолу</span><span class="pill">бақылау</span><span class="pill">салыстырмалы талдау</span><span class="pill">морфологиялық сипаттама</span><span class="pill">микроскопия</span><span class="pill">маркетингтік сауалнама</span><span class="pill">өнім дизайны</span><span class="pill">экономикалық есеп</span><span class="pill">тәжірибелік үлгілер</span></p>
+   <h3 style="margin-top:16px">Жаңалығы</h3><p>Алматы өңіріне тән Шренк шыршасының қылқаны мен бүрін табиғи шикізат ретінде қарастырып, биология, химия, косметология, дизайн және маркетингті бір жобада біріктіру.</p></div>
+ </div>
+</div></section>
+
+<section class="band dark" id="spruce"><div class="wrap">
+ <h2 class="reveal">Шренк шыршасы — Іле Алатауының мәңгі жасыл ағашы</h2>
+ <p class="lead reveal">Ағаш атауын ботаник Александр Шренктің құрметіне алған. Орталық Азияның тауларына, Қазақстанда негізінен Тянь-Шань мен Іле Алатауының орманды белдеуіне тән. Тамыры топырақты бекітіп, су эрозиясының алдын алады, ал өсуіне температура, топырақ, ылғал, күн сәулесі мен биіктік белдеуі әсер етеді.</p>
+ <div class="grid g2" style="margin-top:28px">
+  <div class="reveal"><h3>Жүйелік орны</h3>
+   <div class="taxo">
+    <div><span>Дүниесі</span><b>Өсімдіктер</b></div><div><span>Бөлімі</span><b>Ашық тұқымдылар</b></div><div><span>Класы</span><b>Қылқанжапырақтылар</b></div><div><span>Қатары</span><b>Қарағайтәрізділер</b></div><div><span>Тұқымдасы</span><b>Қарағайлар</b></div><div><span>Туысы</span><b>Шырша (<i>Picea</i>)</b></div><div><span>Түрі</span><b>Шренк шыршасы (<i>Picea schrenkiana</i>)</b></div>
+   </div>
+   <p style="margin-top:14px;font-size:15px;color:var(--soft)">Шырша — ашық тұқымды өсімдік: тұқымы жемістің ішінде емес, бүр қабыршақтарының арасында дамиды.</p>
+  </div>
+  <div class="reveal"><h3>Табиғаттағы маңызы</h3>
+   <div class="grid g2" style="gap:12px">
+    <div class="card">Көмірқышқыл газын сіңіреді, фотосинтез арқылы оттегі бөледі</div>
+    <div class="card">Таулы орман экожүйесін қалыптастырады</div>
+    <div class="card">Топырақты эрозиядан қорғайды</div>
+    <div class="card">Жануарлар мен құстарға тіршілік ортасы</div>
+   </div>
+   <figure style="margin:16px 0 0"><div class="ph" style="aspect-ratio:2/1"><img src="img/cones-jar.jpg" alt="Шыны ыдыстағы жас шырша бүрлері"></div><figcaption>Жас жасыл бүрлер — зерттеудің негізгі шикізаты</figcaption></figure>
+  </div>
+ </div>
+
+ <h3 style="margin-top:44px" class="reveal">Шыршаның құрылысы — бөлігін таңдаңыз</h3>
+ <div class="tree reveal">
+  <svg viewBox="0 0 300 420" role="img" aria-label="Шырша мүшелерінің сызбасы">
+   <defs><linearGradient id="gt" x1="0" x2="1"><stop offset="0" stop-color="#2f7a4f"/><stop offset="1" stop-color="#174a33"/></linearGradient></defs>
+   <g class="part" data-k="root"><path d="M150 360 C130 380 95 388 70 400 M150 360 C170 382 205 390 235 402 M150 362 C150 385 145 400 140 414 M150 360 C120 372 100 372 85 380" stroke="#a9805a" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+   <g class="part" data-k="trunk"><path d="M142 362 L146 60 L154 60 L158 362Z" fill="#7a4a26"/></g>
+   <g class="part" data-k="branch"><path d="M150 300 L60 330 M150 300 L240 330 M150 230 L80 262 M150 230 L220 262 M150 160 L100 190 M150 160 L200 190" stroke="#5b3a1f" stroke-width="4" stroke-linecap="round"/></g>
+   <g class="part" data-k="needle"><path d="M150 40 L95 140 L118 138 L70 220 L100 216 L50 300 L90 296 L35 350 L265 350 L210 296 L250 300 L200 216 L230 220 L182 138 L205 140Z" fill="url(#gt)" opacity=".92"/></g>
+   <g class="part" data-k="cone"><g fill="#7a4a26" stroke="#3d2412" stroke-width="1.2"><ellipse cx="108" cy="250" rx="9" ry="20"/><ellipse cx="196" cy="180" rx="8" ry="18"/><ellipse cx="205" cy="315" rx="9" ry="21"/><ellipse cx="128" cy="168" rx="7" ry="16"/></g></g>
+  </svg>
+  <div>
+   <div class="chips" id="tchips"></div>
+   <div class="card" id="tinfo" aria-live="polite"></div>
+   <div class="card" style="margin-top:14px"><h3>Көбеюі</h3><p>Шыршада аталық және аналық бүрлер болады. Аталық бүрде түзілген тозаң желмен аналық бүрге жетіп, ұрықтанудан кейін тұқым дамиды. Піскен бүрдің қабыршақтары ашылып, қанатты тұқымдар желмен таралады — мұны жоғарыдағы 3D бүрден «Қабыршақтарды ашу» арқылы көріңіз.</p></div>
+  </div>
+ </div>
+
+ <h3 style="margin-top:44px">Қылқан мен бүрді салыстыру</h3>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>Көрсеткіш</th><th>Қылқан</th><th>Бүр</th></tr></thead>
+  <tbody>
+   <tr><td>Қызметі</td><td>Фотосинтез, қоректік зат түзу</td><td>Көбею, тұқым қалыптастыру</td></tr>
+   <tr><td>Сыртқы пішіні</td><td>Жіңішке, қатты</td><td>Қабыршақты</td></tr>
+   <tr><td>Түсі</td><td>Жасыл</td><td>Жасыл, күлгін немесе қоңыр</td></tr>
+   <tr><td>Зерттеу бағыты</td><td>Химиялық құрам, хош иіс</td><td>Құрылымы, тұқымдары, құрамы</td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section class="band" id="chem"><div class="wrap">
+ <h2 class="reveal">Қылқан мен бүрдің химиялық құрамы</h2>
+ <p class="lead reveal">Ғылыми әдебиетте қылқанжапырақты өсімдіктерден эфир майлары, терпендер, флавоноидтар мен фенолдық қосылыстар сипатталады. Мөлшері түрге, жасқа, өсу ортасы мен маусымға байланысты өзгереді. Карточканы басып, ішін көріңіз.</p>
+ <h3 style="margin-top:24px">Дәрумендер</h3>
+ <div class="grid g4" id="vit"></div>
+ <h3 style="margin-top:30px">Ферменттер (болуы мүмкін)</h3>
+ <div class="grid g3" id="enz"></div>
+ <h3 style="margin-top:30px">Басқа биологиялық белсенді заттар</h3>
+ <p><span class="pill">Эфир майлары — хош иіс береді</span><span class="pill">Терпендер — парфюмериядағы хош иіс компоненті</span><span class="pill">Флавоноидтар — антиоксидант</span><span class="pill">Фенолдық қосылыстар — өсімдіктің қорғаныш жүйесі</span><span class="pill">Таниндер</span><span class="pill">Шайырлар</span><span class="pill">Каротиноидтар</span><span class="pill">Органикалық қышқылдар</span><span class="pill">Минералдық элементтер</span></p>
+ <h3 style="margin-top:30px">Дәрумендер қай мүшелерге қатысты</h3>
+ <div class="org" id="org"></div>
+ <p class="note" style="margin-top:20px"><b>Ғылыми ескерту.</b> Бұл заттардың барлығы зерттелген Шренк шыршасы үлгісінде нақты анықталды деп айтуға болмайды — нақты мөлшері зертханалық химиялық талдауды қажет етеді. Өсімдік ферменттері адам ағзасына түскенде міндетті түрде сол қызметті атқармайды: ас қорыту кезінде олардың көпшілігі ыдырайды.</p>
+</div></section>
+
+<section class="band dark" id="lab"><div class="wrap">
+ <h2 class="reveal">Зертханалық зерттеу және қауіпсіздік</h2>
+ <div class="grid g2" style="align-items:start">
+  <figure class="reveal" style="margin:0"><div class="ph" style="aspect-ratio:4/3"><img src="img/lab2.jpg" alt="Оқушы микроскоппен үлгіні зерттеп отыр"></div><figcaption>Шырша бүрі мен қылқанының препаратын микроскоппен зерттеу — маман кеңесімен</figcaption></figure>
+  <figure class="reveal" style="margin:0"><div class="ph" style="aspect-ratio:4/3"><img src="img/lab1.jpg" alt="Зертхана маманы үлгіні дайындауды көрсетіп тұр" style="object-position:center 35%"></div><figcaption>Препаратты микроскоп үстеліне дұрыс орналастыру</figcaption></figure>
+ </div>
+ <div class="grid g2" style="margin-top:28px">
+  <div class="card"><h3>Бақылау көрсеткіштері</h3><ul class="clean"><li>Ағаштың сыртқы пішіні мен діңінің ерекшелігі</li><li>Бұтақтарының орналасуы</li><li>Қылқанының түсі мен пішіні</li><li>Бүрлерінің сыртқы көрінісі</li><li>Өсу ортасының жағдайы</li></ul><p style="margin-top:10px">Нәтижелер фотосуреттермен және зерттеу күнделігімен тіркелді.</p></div>
+  <div class="card"><h3>Қауіпсіздік талаптары</h3><ul class="clean"><li>Өсімдік түрін нақты анықтау</li><li>Ластанған аумақтан шикізат жинамау, тазалығын тексеру</li><li>Белгісіз қылқанжапырақтыларды тағамға пайдаланбау</li><li>Косметиканы алдымен терінің кішкентай аймағында сынау</li><li>Балаларға арналған өнімдерге ерекше талап қою</li><li>Микробиологиялық тазалықты бақылау</li><li>Саябақтағы ағаштан қылқан мен бүрді рұқсатсыз жинамау</li></ul></div>
+ </div>
+ <p class="note" style="margin-top:20px">Шырша құрамындағы эфир майлары мен шайырлы қосылыстар кейбір адамдарда аллергия немесе тері тітіркенуін тудыруы мүмкін. Зертханалық рұқсатсыз дайындалған сусынды ішуге немесе басқаларға дәм татқызуға болмайды.</p>
+</div></section>
+
+<section class="band" id="tech"><div class="wrap">
+ <h2 class="reveal">Өнім дайындау технологиясы</h2>
+ <p class="lead">Тәжірибелік үлгілер дайын, қауіпсіз негіздерге шырша бүрінің сүзілген тұнбасын аз мөлшерде қосу арқылы жасалады.</p>
+ <div class="tabs" id="rtabs"></div>
+ <div class="grid g2" style="align-items:start">
+  <div class="card" id="rbody" aria-live="polite"></div>
+  <div class="grid" style="gap:14px">
+   <figure style="margin:0"><div class="ph" style="aspect-ratio:3/2"><img src="img/prep1.jpg" alt="Су моншасында майды ерітіп, ингредиент қосу"></div><figcaption>Су моншасында майлы фазаны дайындау</figcaption></figure>
+   <figure style="margin:0"><div class="ph" style="aspect-ratio:3/2"><img src="img/prep2.jpg" alt="Крем мен далапқа арналған майлар мен балауыз"></div><figcaption>Ши майы, балауыз және өсімдік майлары</figcaption></figure>
+  </div>
+ </div>
+ <h3 style="margin-top:36px">Дайын өнімдердің сипаттамасы</h3>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>Өнім</th><th>Күтілетін түсі</th><th>Құрылымы</th><th>Ерекшелігі</th></tr></thead>
+  <tbody>
+   <tr><td>Шырша бүрінен сусын</td><td>Ашық қоңыр</td><td>Сұйық</td><td>Табиғи өсімдік хош иісі</td></tr>
+   <tr><td>Шырша бүрінің тұнбасы</td><td>Қоңырлау</td><td>Сұйық</td><td>Өсімдік сығындысы</td></tr>
+   <tr><td>Бетке арналған маска</td><td>Жасылдау немесе қоңыр</td><td>Қою</td><td>Косметикалық компонент</td></tr>
+   <tr><td>Табиғи сабын</td><td>Жасылдау</td><td>Қатты</td><td>Шырша хош иісі</td></tr>
+   <tr><td>Сусабын</td><td>Ашық жасыл немесе қоңыр</td><td>Сұйық</td><td>Шаш күтіміне арналған</td></tr>
+   <tr><td>Хош иісті өнім</td><td>Құрамына байланысты</td><td>Сұйық</td><td>Орманның табиғи хош иісі</td></tr>
+  </tbody></table></div>
+ <h3 style="margin-top:30px">Сапа көрсеткіштері</h3>
+ <div class="grid g3">
+  <div class="card"><b>Түсі, иісі, құрылымы</b><br>Сыртқы көрінісі, хош иісі, біркелкілігі</div>
+  <div class="card"><b>pH көрсеткіші</b><br>Сусабынға 4,5–5,5; бет кремі үшін 5,0–5,5</div>
+  <div class="card"><b>Тұрақтылық және тазалық</b><br>Үлгілер 2–3 апта бақыланады; бұл ресми жарамдылық мерзімі емес</div>
+ </div>
+</div></section>
+
+<section class="band dark" id="results"><div class="wrap">
+ <h2 class="reveal">Тәжірибелік бақылау нәтижелері</h2>
+ <p class="lead reveal">Өнімдерді ересек қатысушылар (ұстаз, ана, апа, құрбылар) бірнеше апта қолданды. Сызықты жылжытып, «дейін» және «кейін» суреттерін салыстырыңыз.</p>
+ <div class="grid g3" style="margin-top:24px;align-items:start">
+  <figure style="margin:0" class="reveal"><div class="ba" style="aspect-ratio:3/4"><img src="img/hair-after.jpg" alt="Сусабыннан кейінгі шаш"><img class="top" src="img/hair-before.jpg" alt="Сусабынға дейінгі шаш"><span class="tag l">Дейін</span><span class="tag r">Кейін</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Шаш: дейін мен кейінді салыстыру"></div><figcaption><b>Сусабын.</b> 1 ай қолданғаннан кейін шаштың түсуі азайып, түбі бекіп, жылтырлығы артты. Нәтиже жарты айда байқалды. 13 жастан жоғары қолдануға болады.</figcaption></figure>
+  <figure style="margin:0" class="reveal"><div class="ba" style="aspect-ratio:16/11"><img src="img/lips-after.jpg" alt="Далаптан кейінгі ерін"><img class="top" src="img/lips-before.jpg" alt="Далапқа дейінгі ерін"><span class="tag l">Дейін</span><span class="tag r">Кейін</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Ерін: дейін мен кейінді салыстыру"></div><figcaption><b>Далап (жақпа май).</b> 1,5 апта қолданылды; еріннің жарылуы 4 күнде кетті, табиғи түс берді. 10 жастан асқандарға.</figcaption></figure>
+  <figure style="margin:0" class="reveal"><div class="ba" style="aspect-ratio:3/4"><img src="img/face-after.jpg" alt="Маскадан кейінгі бет терісі"><img class="top" src="img/face-mask.jpg" alt="Бет маскасын қолдану кезі"><span class="tag l">Маска</span><span class="tag r">Кейін</span><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Бет маскасы: қолдану кезі мен нәтижесі"></div><figcaption><b>Крем, маска.</b> 2 ай қолданылды; тері жұмсарып, ылғалданды, майлылық сезімі қалмады. Нәтиже 1,5 айда байқалды.</figcaption></figure>
+ </div>
+ <div class="grid g3" style="margin-top:24px">
+  <div class="card"><h3>Тұнба</h3><p>Ыстық тұнбаның буымен тыныс алу жолдары жеңілдеді; жылы тұнбамен бет жуу жарылған теріні тыныштандырды. 1,5 ай қолданылды, әсері 3-аптада білінді. 25 жастан жоғары.</p></div>
+  <div class="card"><h3>Шашқа арналған маска</h3><p>Зақымданған шашқа 15 минутқа жағылып, жылы сумен шайылды. 3 ай қолданылды, әсері 1 айда байқалды. 18 жастан жоғары.</p></div>
+  <div class="card"><h3>Сусын</h3><p>Сусынның дәмі, түсі, иісі және тағамдық қауіпсіздігі зертханада тексерілгенге дейін ол ішуге ұсынылмайды — бұл бағыт тек зерттеу тұжырымдамасы.</p></div>
+ </div>
+ <p class="note" style="margin-top:20px">Барлық қатысушылар өнімнің табиғи иісі мен жұмсақ әсерін оң бағалады. Бұл — шағын топтың субъективті бақылауы; болжамды толық дәлелдеу үшін химиялық, микробиологиялық және дерматологиялық сынақтар қажет.</p>
+</div></section>
+
+<section class="band" id="brand"><div class="wrap">
+ <div class="brand" style="color:var(--gold2)">AIARU NATURAL</div>
+ <h2 class="reveal">«Табиғаттан шабыт, ғылымнан сапа!»</h2>
+ <p class="lead reveal">Брендтің идеясы — Алматы табиғатының ерекшелігін заманауи косметологиямен, табиғи өнімдермен және креативті дизайнмен байланыстыру. Өнімді басып, толығырақ оқыңыз.</p>
+ <div class="car" id="car"><div class="ring" id="ring"></div>
+  <div class="nav"><button class="btn" id="prev" type="button" aria-label="Алдыңғы өнім">←</button><button class="btn" id="play" type="button">Тоқтату</button><button class="btn" id="next" type="button" aria-label="Келесі өнім">→</button></div></div>
+ <div class="card pinfo" id="pinfo" aria-live="polite"></div>
+ <div class="grid g2" style="margin-top:32px;align-items:start">
+  <div>
+   <h3>Қаптама түстері</h3>
+   <div class="grid g2" style="gap:10px">
+    <div class="card" style="background:#1d5a3c;color:#efe9d8;border:0"><b>Жасыл</b> — табиғат пен шырша</div>
+    <div class="card" style="background:#fffdf6;color:#16261d"><b>Ақ</b> — тазалық</div>
+    <div class="card" style="background:#7a4a26;color:#f7efe0;border:0"><b>Қоңыр</b> — табиғи шикізат</div>
+    <div class="card" style="background:#c8a24c;color:#1a1a0c;border:0"><b>Алтын</b> — сапа мен ерекшелік</div>
+   </div>
+   <h3 style="margin-top:22px">Жапсырмадағы ақпарат</h3>
+   <p><span class="pill">логотип</span><span class="pill">өнім атауы</span><span class="pill">құрамы</span><span class="pill">дайындалған күні</span><span class="pill">сақтау шарттары</span><span class="pill">жарамдылық мерзімі</span><span class="pill">өндіруші</span><span class="pill">штрих-код</span><span class="pill">QR-код</span></p>
+   <p>QR-код арқылы тұтынушы өнімнің шығу тарихымен, Шренк шыршасының ерекшеліктерімен және зерттеу нәтижелерімен таныса алады. Ыдыс ретінде мөлдір немесе күңгірт шыны ұсынылады: дәрумендер пластикке қарағанда шыны ыдыста жақсы сақталады.</p>
+   <figure style="margin:16px 0 0"><div class="ph"><img src="img/labels.jpg" alt="AIARU NATURAL жапсырмалар жиынтығы"></div><figcaption>Жапсырмалар жиынтығы: сусабын, маска, скраб, сабын, шай, сығынды, бирка</figcaption></figure>
+  </div>
+  <figure style="margin:0"><div class="ph"><img src="img/poster.jpg" alt="AIARU NATURAL жобасының көрме стенді"></div><figcaption>Көрме стенді: өзектілігі, мақсаты, міндеттері, әдістері, нәтижесі, қорытындысы</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="band dark" id="market"><div class="wrap">
+ <h2 class="reveal">Маркетингтік және экономикалық талдау</h2>
+ <div class="grid g2" style="align-items:start">
+  <div class="card"><h3>Мақсатты аудитория</h3><ul class="clean"><li>Жасөспірімдер мен жастар</li><li>Табиғи косметикаға қызығатындар</li><li>Жергілікті брендтерді қолдайтын тұтынушылар</li><li>Ерекше сыйлық іздейтіндер</li><li>Экологиялық өнімдерді бағалайтындар</li></ul></div>
+  <div class="card"><h3>Сауалнама: «Табиғи өнімдерге қызығушылық»</h3><ol class="steps"><li>Табиғи косметиканы пайдаланасыз ба?</li><li>Өнімнің құрамына назар аударасыз ба?</li><li>Өсімдік шикізатынан жасалған өнімді сатып алар ма едіңіз?</li><li>Шырша хош иісті өнім сізге қызықты ма?</li><li>Қаптама сатып алу шешіміңізге әсер ете ме?</li><li>AIARU NATURAL бренді қызығушылық тудыра ма?</li><li>Қандай өнім түрін таңдар едіңіз?</li></ol><p style="margin-top:10px;font-size:14px;color:var(--soft)">Нәтижелер мектеп оқушылары мен ересектердің нақты жауаптары бойынша толтырылып, диаграммамен көрсетіледі.</p></div>
+ </div>
+ <h3 style="margin-top:36px">SWOT талдау</h3>
+ <div class="swot">
+  <div class="s"><h3><i>S</i>Күшті жақтары</h3><ul class="clean"><li>Ерекше өнім идеясы</li><li>Жергілікті шикізатқа негізделуі</li><li>Ерекше бренд атауы</li><li>Табиғатпен байланысты дизайн</li></ul></div>
+  <div class="w" style="color:var(--ink)"><h3><i>W</i>Әлсіз жақтары</h3><ul class="clean"><li>Зертханалық тексеру қажеттілігі</li><li>Өндірістік тәжірибенің аздығы</li><li>Шикізат жинауға шектеулер</li><li>Қауіпсіздік сынақтарының қажеттілігі</li></ul></div>
+  <div class="o" style="color:var(--ink)"><h3><i>O</i>Мүмкіндіктер</h3><ul class="clean"><li>Отандық бренд қалыптастыру</li><li>Әлеуметтік желі арқылы жарнама</li><li>Көрмелер мен жәрмеңкелер</li><li>Жаңа өнім түрлерін әзірлеу</li></ul></div>
+  <div class="t" style="color:var(--ink)"><h3><i>T</i>Қауіптер</h3><ul class="clean"><li>Нарықтағы бәсекелестік</li><li>Шикізат сапасының өзгеруі</li><li>Сұраныстың төмен болуы</li><li>Өнім қауіпсіздігіне қойылатын талаптар</li></ul></div>
+ </div>
+
+ <h3 style="margin-top:40px">Өзіндік құн калькуляторы</h3>
+ <div class="calc card">
+  <div id="cin"></div>
+  <div>
+   <div style="color:var(--soft);font-size:14px">Бір өнімге шаққандағы шартты шығын</div>
+   <div class="big" id="unit">350 ₸</div>
+   <div style="margin:6px 0 16px">Барлығы: <b id="tot">35 000 ₸</b></div>
+   <div class="bars" id="bars"></div>
+  </div>
+ </div>
+ <p style="font-size:14px;color:var(--soft);margin-top:10px">Бастапқы сандар — жобадағы 100 тәжірибелік қаптамаға арналған шартты мысал, нарықтық баға емес. Нақты өзіндік құнға шикізат, еңбекақы, жабдық, зертханалық тексеру, салық пен тасымал да кіреді.</p>
+
+ <h3 style="margin-top:40px">Брендті дамыту жоспары</h3>
+ <div class="road">
+  <div><b>Ғылыми зерттеу</b><br>Биологиялық ерекшеліктер мен құрам туралы ақпарат</div>
+  <div><b>Зертханалық тексеру</b><br>Тазалығы, құрамы, қауіпсіздігі</div>
+  <div><b>Өнім тұжырымдамасы</b><br>Сусын мен косметика үлгілері</div>
+  <div><b>Бренд дизайны</b><br>Логотип, қаптама, жапсырма, жарнама</div>
+  <div><b>Маркетинг</b><br>Сауалнама, тұтынушы қызығушылығы</div>
+  <div><b>Болашақ өндіріс</b><br>Нормативтік талаптар орындалған соң</div>
+ </div>
+</div></section>
+
+<section class="band" id="history"><div class="wrap">
+ <h2 class="reveal">Жоба тарихы: жоңышқадан шыршаға</h2>
+ <p class="lead reveal">Зерттеудің алғашқы кезеңінде жоңышқадан (<i>Medicago</i>) крем, маска, сусабын, далап пен тұнба дайындалып, 2025 жылдың желтоқсанында таныстырылды. Осы тәжірибе негізінде жоба Алматыға тән Шренк шыршасына кеңейтілді.</p>
+ <div class="grid g4" id="hist" style="margin-top:20px"></div>
+ <h3 style="margin-top:32px">Табиғи және синтетикалық өнімдер</h3>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>Көрсеткіш</th><th>Шырша бүрі негізіндегі өнімдер</th><th>Дайын косметикалық өнімдер</th></tr></thead>
+  <tbody>
+   <tr><td>Құрамы</td><td>Өсімдік сығындысы негізінде</td><td>Әртүрлі косметикалық компоненттер</td></tr>
+   <tr><td>Иісі</td><td>Шыршаға тән орман хош иісі</td><td>Табиғи немесе жасанды хош иіс</td></tr>
+   <tr><td>Түсі</td><td>Шикізатқа байланысты</td><td>Табиғи немесе бояғыштар арқылы</td></tr>
+   <tr><td>Дайындау</td><td>Тәжірибелік және зертханалық әдіс</td><td>Өндірістік технология</td></tr>
+   <tr><td>Сақталуы</td><td>Арнайы зерттеуді қажет етеді (үй жағдайындағы үлгілер — 10–14 күн)</td><td>Тұрақтылық сынақтарымен анықталады</td></tr>
+   <tr><td>Қауіпсіздігі</td><td>Алдын ала тексерілуі қажет</td><td>Белгіленген талаптарға сай бағаланады</td></tr>
+  </tbody></table></div>
+ <p style="font-size:15px;color:var(--soft);margin-top:10px">Салыстыру табиғи өнімнің міндетті түрде қауіпсіз немесе тиімді екенін білдірмейді: сапасы нақты құрам мен зертханалық тексеру нәтижесіне байланысты.</p>
+</div></section>
+
+<section class="band dark" id="end"><div class="wrap">
+ <h2 class="reveal">Қорытынды</h2>
+ <div class="grid g2" style="align-items:start">
+  <div>
+   <p>Зерттеу барысында Шренк шыршасының жүйелік орны, құрылысы, көбеюі және экологиялық маңызы қарастырылды; қылқанжапырақтылардағы эфир майлары, терпендер, флавоноидтар мен фенолдық қосылыстар туралы мәліметтер жинақталды.</p>
+   <p>«AIARU NATURAL» бренді аясында шай, тұнба, табиғи сабын, сусабын, бет кремі, маска және хош иісті өнімдердің үлгілері ұсынылды; дизайн, қаптама, сақтау, SWOT талдау мен экономикалық есеп жасалды.</p>
+   <p>Жергілікті өсімдік шикізатын жаңа өнім идеяларын әзірлеуде пайдалануға болады деген тұжырым жасалды. Өндіріске енгізу үшін химиялық, микробиологиялық және қауіпсіздік сынақтары қажет. Табиғатты қорғау, ағаштарды зақымдамау және шикізатты жауапкершілікпен пайдалану — басты шарт.</p>
+  </div>
+  <div class="card" style="text-align:center;padding:36px 24px"><p class="quote">«Табиғаттың сыйын бағалай білейік, ғылыммен зерттейік, инновациямен дамытайық!»</p><p style="margin:14px auto 0;color:var(--soft)">— Рахимжан Айару, ғылыми ұстаным</p></div>
+ </div>
+ <h3 style="margin-top:36px">Пайдаланылған әдебиеттер</h3>
+ <ol class="refs">
+  <li>Қазақстан флорасы. Ботаникалық анықтамалық материалдар.</li>
+  <li>Қазақстан табиғаты: энциклопедиялық анықтамалық. Алматы: Қазақ энциклопедиясы.</li>
+  <li>Бейсенова Ә.С. Қазақстан табиғаты және экологиясы бойынша оқу материалдары.</li>
+  <li>Raven P. H., Evert R. F., Eichhorn S. E. Biology of Plants. W. H. Freeman.</li>
+  <li>Taiz L., Zeiger E. Plant Physiology. Sinauer Associates.</li>
+  <li>Harborne J. B. Phytochemical Methods. Chapman and Hall.</li>
+  <li>Evans W. C. Trease and Evans Pharmacognosy. Elsevier.</li>
+  <li>Simões C. M. O. et al. Pharmacognosy: From the Molecule to the Medicine.</li>
+  <li>European Medicines Agency. Herbal medicinal products: scientific guidelines.</li>
+  <li>World Health Organization. Quality Control Methods for Herbal Materials. Geneva, 2011.</li>
+  <li>ҚР өсімдіктер дүниесін қорғау жөніндегі нормативтік материалдар.</li>
+  <li>ТР ТС 009/2011 «Парфюмерлік-косметикалық өнімдердің қауіпсіздігі туралы» техникалық регламенті.</li>
+  <li>Қылқанжапырақты өсімдіктердің химиялық құрамы мен эфир майлары туралы ғылыми материалдар.</li>
+  <li>Биология пәні бойынша 9-сынып оқулығы; ботаника оқулығы.</li>
+  <li>Қазақстанның өсімдіктер дүниесі туралы ғылыми-танымдық материалдар.</li>
+ </ol>
+</div></section>
+
+<footer class="band" style="padding-block:28px"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between">
+ <span><b style="color:#c8a24c;font-family:Lora,serif;letter-spacing:.06em">AIARU NATURAL</b> · Мектеп оқушыларының ғылыми жобалар конкурсы, 2026</span>
+ <span>№169 мектеп-лицей, Алматы · Жетекші: Турлашева А. М.</span>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* abstract tabs */
+$$('[data-tab]').forEach(b=>b.onclick=()=>{$$('[data-tab]').forEach(x=>x.classList.toggle('on',x===b));['kk','ru','en'].forEach(k=>$('#p-'+k).hidden=k!==b.dataset.tab)});
+
+/* tree parts */
+const parts={root:['Тамыры','Ағашты топыраққа бекітеді, топырақтан су мен минералдық элементтерді сіңіреді, эрозияның алдын алады.'],
+trunk:['Діңі','Ағаштың негізгі тірегі. Оның бойымен су мен минералдық заттар жоғары көтеріледі, органикалық заттар басқа мүшелерге таралады.'],
+branch:['Бұтақтары','Бұтақтарда қылқандар мен бүрлер орналасады.'],
+needle:['Қылқаны','Фотосинтез жүргізетін мүше: жіңішке, қатты, мәңгі жасыл. Сыртқы қабаты судың булануын азайтады.'],
+cone:['Бүрі','Көбеюге қатысатын мүше. Қабыршақтарының арасында тұқым дамиды. Жас бүр жасыл немесе күлгін, піскені қоңыр түсті.']};
+const selPart=k=>{$('#tinfo').innerHTML=`<h3>${parts[k][0]}</h3><p>${parts[k][1]}</p>`;$$('.tree .part').forEach(p=>p.classList.toggle('sel',p.dataset.k===k));$$('#tchips .btn').forEach(b=>b.classList.toggle('on',b.dataset.k===k))};
+$('#tchips').innerHTML=Object.keys(parts).map(k=>`<button class="btn" type="button" data-k="${k}">${parts[k][0]}</button>`).join('');
+$$('#tchips .btn,.tree .part').forEach(e=>e.addEventListener('click',()=>selPart(e.dataset.k)));
+selPart('cone');
+
+/* flip cards */
+const vit=[['С дәрумені','Антиоксидант','Иммундық жүйе, тері, қан тамырлары: иммунитетті қолдайды, коллаген түзілуіне қатысады.'],
+['А дәруменінің ізашарлары','Каротиноидтар','Көз бен тері: көру мен терінің қалыпты қызметіне қажет.'],
+['Е дәрумені','Антиоксидант','Жүрек-қан тамырлары жүйесі: жасушаларды тотығу зақымынан қорғауға көмектеседі.'],
+['В тобы дәрумендері','Аз мөлшерде болуы мүмкін','Ми мен жүйке жүйесі: жүйке қызметі мен энергия алмасуына қатысады.']];
+const enz=[['Каталаза','Сутек асқын тотығын ыдыратып, жасушаларды оның әсерінен қорғайды.'],['Пероксидаза','Тотығу-тотықсыздану үдерістеріне қатысады.'],['Полифенолоксидаза','Фенолдық заттардың тотығуына қатысады.'],['Амилаза','Крахмалды ыдыратады.'],['Протеаза','Ақуыздарды ыдыратады.'],['Липаза','Майларды ыдыратады.']];
+const flip=(a,b,c)=>`<div class="flip" tabindex="0"><div class="in"><div class="f"><b>${a}</b><small>${b}</small></div><div class="b"><em>${a}</em>${c}</div></div></div>`;
+$('#vit').innerHTML=vit.map(v=>flip(...v)).join('');
+$('#enz').innerHTML=enz.map(e=>flip(e[0],'фермент',e[1])).join('');
+$$('.flip').forEach(f=>{f.onclick=()=>f.classList.toggle('on');f.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f.classList.toggle('on')}}});
+const ic={brain:'<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zm6 0a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/>',
+eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+heart:'<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3c0 6-8 11-8 11z"/>',
+gut:'<path d="M7 3v4c0 2 2 3 4 3h2c2 0 4 1 4 3s-2 3-4 3h-2c-2 0-4 1-4 3v2"/>',
+skin:'<path d="M3 9c3-2 6-2 9 0s6 2 9 0M3 14c3-2 6-2 9 0s6 2 9 0M3 19h18"/>'};
+const org=[['brain','Ми, жүйке жүйесі','В тобы дәрумендері жүйке жүйесінің қалыпты жұмысын қолдайды.'],['eye','Көз','А дәруменінің ізашарлары көру қабілетіне қажет.'],['heart','Жүрек, қан тамырлары','С дәрумені қан тамырларының дәнекер тінін қалыптастыруға қатысады.'],['gut','Асқазан, ішек','Амилаза, протеаза, липаза тағамның қорытылуына қатысады.'],['skin','Тері','С және Е дәрумендері тері жасушаларының қызметіне қатысады.']];
+$('#org').innerHTML=org.map(o=>`<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ic[o[0]]}</svg><b>${o[1]}</b><span style="font-size:14px;color:var(--soft)">${o[2]}</span></div>`).join('');
+
+/* recipes */
+const R={
+'Тұнба':`<h3>Шырша бүрінің су тұнбасы</h3><ol class="steps"><li>Қоңыр бүрді шаңнан тазартып, кептіріп, ұсақтаңыз.</li><li>10 г ұсақталған бүрге 100 мл дистилденген су құйыңыз.</li><li>Су моншасында 70–80°C-та 30 минут ұстаңыз, қайнатпаңыз.</li><li>Суытып, дәке немесе зертханалық сүзгі арқылы сүзіңіз.</li><li>Жабық таза ыдыста тоңазытқышта қысқа уақыт сақтаңыз.</li></ol><p style="margin-top:12px"><b>Сипаттамасы:</b> ашық қоңыр немесе сарғыш, шыршаға тән иісі бар сұйықтық; мөлдірлігі сүзу сапасына байланысты, pH зертханалық құралмен өлшенеді.</p>`,
+'Сусабын':`<h3>Шырша бүрі қосылған сусабын</h3><div class="scroll"><table><thead><tr><th>Құрамы</th><th>Мөлшері</th><th>Қызметі</th></tr></thead><tbody><tr><td>Дайын сабын негізі</td><td>100 мл</td><td>Шашты тазарту</td></tr><tr><td>Бүрдің сүзілген тұнбасы</td><td>5 мл</td><td>Өсімдік компоненті</td></tr><tr><td>Глицерин</td><td>2 мл</td><td>Ылғал ұстау</td></tr><tr><td>Пантенол</td><td>1 мл</td><td>Шаш күтімі</td></tr><tr><td>Алоэ вера гелі</td><td>2 мл</td><td>Бас терісін күту</td></tr></tbody></table></div><ol class="steps" style="margin-top:12px"><li>Таза ыдысқа сабын негізін құйыңыз.</li><li>Суыған тұнбаны, глицерин, пантенол және алоэ гелін қосыңыз.</li><li>Баяу араластырып, таза құтыға құйыңыз.</li></ol><p style="margin-top:12px">pH шамамен 4,5–5,5. Сулы тұнба қосылған сусабын тез бұзылады: косметикаға жарамды консервант қажет. Қосымша компоненттер: қалақай, түймедақ сығындысы, бидай ақуызы, аллантоин.</p>`,
+'Далап':`<h3>Ерінге арналған далап</h3><ol class="steps"><li>Ара балауызы мен ши майын су моншасында ерітіңіз.</li><li>Кокос және кастор майын, бүрдің майлы сығындысын қосыңыз.</li><li>Жақсылап араластырыңыз.</li><li>Температура төмендегенде Е дәруменін қосыңыз.</li><li>Таза далап құтысына құйып, қатқанша күтіңіз.</li></ol>`,
+'Сабын':`<h3>Глицеринді табиғи сабын</h3><div class="scroll"><table><thead><tr><th>Құрамы</th><th>Мөлшері</th></tr></thead><tbody><tr><td>Дайын глицеринді сабын негізі</td><td>100 г</td></tr><tr><td>Қоңыр бүрдің майлы сығындысы</td><td>0,5 г</td></tr><tr><td>Қоңыр бүрдің су тұнбасы</td><td>50 г</td></tr><tr><td>Косметикалық жасыл пигмент</td><td>нұсқаулық бойынша</td></tr><tr><td>Косметикалық Е дәрумені</td><td>1 г</td></tr></tbody></table></div><ol class="steps" style="margin-top:12px"><li>Негізді ұсақ бөліктерге бөліп, су моншасында ерітіңіз.</li><li>Бояғыш пен сығындыны қосыңыз.</li><li>Қалыпқа құйып, қатқаннан кейін шығарыңыз.</li></ol><p style="margin-top:12px"><b>Зерттелетін көрсеткіштер:</b> түсі, иісі, pH, көбіктенуі, қаттылығы, суда еруі, сақтау кезіндегі тұрақтылығы.</p>`,
+'Майлы сығынды':`<h3>Шырша бүрінің майлы сығындысы</h3><ol class="steps"><li>5 г кептірілген бүрді ұсақтаңыз.</li><li>50 г косметикалық күнбағыс майын қосыңыз.</li><li>40°C су моншасында 2 сағат ұстаңыз.</li><li>Суытып, сүзгіден өткізіңіз.</li></ol>`,
+'Крем':`<h3>Бет кремі</h3><ol class="steps"><li>Бірінші ыдысқа дистилденген су мен глицерин салыңыз.</li><li>Екінші ыдысқа ши, бадам, жожоба майын және эмульгатор салыңыз.</li><li>Екеуін де су моншасында шамамен 70°C-қа дейін қыздырыңыз.</li><li>Майлы фазаны су фазасына біртіндеп қосып, біркелкі болғанша араластырыңыз.</li><li>40°C-тан төмен суығанда пантенол, алоэ гелі мен консервантты қосыңыз.</li><li>pH өлшеңіз (5,0–5,5), таза құтыға құйыңыз.</li></ol><p style="margin-top:12px">Бүр тұнбасы мен сығындысын қосу үшін алдымен консервант жүйесі, эмульсия тұрақтылығы және теріге қауіпсіздігі зертханада тексеріледі.</p>`};
+$('#rtabs').innerHTML=Object.keys(R).map(k=>`<button class="btn" type="button">${k}</button>`).join('');
+const showR=k=>{$('#rbody').innerHTML=R[k];$$('#rtabs .btn').forEach(b=>b.classList.toggle('on',b.textContent===k))};
+$$('#rtabs .btn').forEach(b=>b.onclick=()=>showR(b.textContent));showR('Тұнба');
+
+/* before/after */
+$$('.ba input').forEach(i=>{const f=()=>i.parentElement.style.setProperty('--p',i.value+'%');i.oninput=f;f()});
+
+/* product carousel */
+const P=[['l-shampoo','Шаш күтіміне арналған сусабын · 250 мл','Шырша қылқаны мен бүрінің тұнбасы қосылған; шашты күшейтуге, жылтыр беруге бағытталған. Сапасы pH, тұрақтылық және микробиологиялық тазалық арқылы бағаланады.'],
+['l-mask','Бет терісіне арналған маска · 100 мл','Ылғалдандыруға, қалпына келтіруге арналған. Талаптар: теріге қауіпсіз, құрамы тұрақты, аллергиялық әсері жоқ.'],
+['l-scrub','Тері күтіміне арналған скраб · 200 мл','Терінің бетіндегі өлі жасушаларды кетіріп, жаңартуға және жұмсартуға арналған.'],
+['l-soap','Табиғи сабын · 100 г','Шыршаның орман хош иісі, табиғи стильдегі жасыл-ақ қаптама. pH пен теріге әсері тексеріледі.'],
+['l-tea','Шырша шайы · 100 мл','Қылқанжапырақты өсімдіктің хош иісін сусын мәдениетімен байланыстыратын тұжырымдама. Тағамдық қауіпсіздігі расталғанға дейін тек зерттеу үлгісі.'],
+['l-serum','Бетке арналған сығынды · 30 мл','Бүр сығындысының концентрлі үлгісі; антиоксиданттық қосылыстары бар өсімдік компоненті ретінде зерттеледі.'],
+['l-tag','Сыйлық биркасы · QR-код','«Табиғаттың сыйы — сіздің сұлулығыңыз үшін!» QR-код өнімнің тарихы мен зерттеу нәтижелеріне апарады.']];
+const ring=$('#ring'),n=P.length;let cur=0,timer=null;
+const radius=()=>innerWidth<600?230:340;
+const lay=()=>{const R0=radius();[...ring.children].forEach((f,i)=>f.style.transform=`rotateY(${i*360/n}deg) translateZ(${R0}px)`);ring.style.transform=`translateZ(${-R0}px) rotateY(${-cur*360/n}deg)`};
+ring.innerHTML=P.map((p,i)=>`<figure data-i="${i}"><img src="img/${p[0]}.jpg" alt="${p[1]}"></figure>`).join('');
+const go=i=>{cur=i;lay();const p=P[((i%n)+n)%n];$('#pinfo').innerHTML=`<h3>${p[1]}</h3><p>${p[2]}</p>`};
+$$('#ring figure').forEach(f=>f.onclick=()=>{const t=+f.dataset.i,c=((cur%n)+n)%n;let d=t-c;if(d>n/2)d-=n;if(d<-n/2)d+=n;go(cur+d)});
+$('#prev').onclick=()=>go(cur-1);$('#next').onclick=()=>go(cur+1);
+const play=on=>{clearInterval(timer);timer=on?setInterval(()=>go(cur+1),3500):null;$('#play').textContent=on?'Тоқтату':'Айналдыру'};
+$('#play').onclick=()=>play(!timer);
+let sx=null;$('#car').addEventListener('pointerdown',e=>sx=e.clientX);$('#car').addEventListener('pointerup',e=>{if(sx!==null&&Math.abs(e.clientX-sx)>40)go(cur+(e.clientX<sx?1:-1));sx=null});
+addEventListener('resize',lay);go(0);play(!RM);
+
+/* calculator */
+const C=[['Қаптама материалдары',15000],['Дизайн және жапсырма',5000],['Шикізатты зерттеу',10000],['Басқа шығындар',5000]];
+const fmt=v=>Math.round(v).toLocaleString('ru-RU').replace(/ /g,' ')+' ₸';
+$('#cin').innerHTML=C.map((c,i)=>`<label>${c[0]}, ₸<input type="number" min="0" step="500" id="c${i}" value="${c[1]}"></label>`).join('')+`<label>Өнім саны, дана<input type="number" min="1" step="1" id="cq" value="100"></label>`;
+const calc=()=>{const v=C.map((c,i)=>Math.max(0,+$('#c'+i).value||0)),t=v.reduce((a,b)=>a+b,0),q=Math.max(1,+$('#cq').value||1),m=Math.max(...v,1);
+$('#tot').textContent=fmt(t);$('#unit').textContent=fmt(t/q);
+$('#bars').innerHTML=v.map((x,i)=>`<div><i style="width:${Math.max(2,x/m*55)}%"></i><span>${C[i][0]}: ${fmt(x)}</span></div>`).join('')};
+$$('#cin input').forEach(i=>i.oninput=calc);calc();
+
+/* history gallery */
+const H=[['j-class','Жоңышқаның жүйелік орны мен таралуы'],['j-benefit','Жоңышқаның ағзаға пайдасы'],['j-mask','Жоңышқадан маска мен крем'],['j-shampoo','Жоңышқадан сусабын'],['j-balm','Жоңышқадан далап'],['j-tea','Жоңышқадан тұнба'],['insta-girl','Өнімдер жиынтығы, 2025 ж. желтоқсан'],['insta-basket','Табиғи өнімдер себеті']];
+$('#hist').innerHTML=H.map(h=>`<figure style="margin:0"><div class="ph" style="aspect-ratio:${h[0].startsWith('insta')?'4/5':'5/4'}"><img src="img/${h[0]}.jpg" alt="${h[1]}" loading="lazy" style="object-fit:${h[0].startsWith('insta')?'cover':'contain'};background:#fff"></div><figcaption>${h[1]}</figcaption></figure>`).join('');
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach(e=>io.observe(e));
+
+/* 3D cone */
+const cv=$('#cone');
+if(!window.THREE){cv.style.display='none';$('#fb').style.display='block'}
+else{try{
+const T=THREE,ren=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+ren.setPixelRatio(Math.min(devicePixelRatio,2));
+const sc=new T.Scene(),cam=new T.PerspectiveCamera(34,1,.1,100);cam.position.set(0,0.2,9.5);
+sc.add(new T.HemisphereLight(0xfff4d6,0x0b2a1a,1.0));
+const dl=new T.DirectionalLight(0xffffff,1.1);dl.position.set(4,6,5);sc.add(dl);
+const rim=new T.DirectionalLight(0xc8a24c,.8);rim.position.set(-5,-2,-4);sc.add(rim);
+const g=new T.Group();sc.add(g);
+const sh=new T.Shape();sh.moveTo(0,-.16);sh.quadraticCurveTo(.42,-.3,.62,0);sh.quadraticCurveTo(.42,.3,0,.16);sh.lineTo(0,-.16);
+const sg=new T.ExtrudeGeometry(sh,{depth:.035,bevelEnabled:true,bevelThickness:.02,bevelSize:.02,bevelSegments:2,curveSegments:10});
+sg.translate(0,0,-.0175);sg.rotateX(Math.PI/2);
+const N=220,mat=new T.MeshStandardMaterial({roughness:.55,metalness:.05});
+const im=new T.InstancedMesh(sg,mat,N);g.add(im);
+const core=new T.Mesh(new T.CylinderGeometry(.18,.12,3.6,16),new T.MeshStandardMaterial({color:0x4a2c15,roughness:.8}));g.add(core);
+const stalk=new T.Mesh(new T.CylinderGeometry(.07,.09,.9,10),new T.MeshStandardMaterial({color:0x5b3a1f,roughness:.8}));stalk.position.y=2.15;g.add(stalk);
+const GA=Math.PI*(3-Math.sqrt(5)),H0=3.6,dm=new T.Object3D(),info=[];
+for(let i=0;i<N;i++){const t=i/(N-1),a=i*GA,prof=Math.pow(Math.sin(Math.PI*(.04+t*.92)),.75)*(.75+.25*t);info.push({t,a,prof})}
+let open=.12,target=.12,ripe=0,ripeT=0;
+const young=new T.Color(0x4f8a46),young2=new T.Color(0x7a5c8a),brown=new T.Color(0x8a5428),brown2=new T.Color(0x5e3518);
+const col=new T.Color();
+const layout=()=>{info.forEach((s,i)=>{const r=.16+s.prof*.62,y=(s.t-.5)*H0;
+ dm.position.set(Math.cos(s.a)*r,-y,Math.sin(s.a)*r);
+ dm.rotation.set(0,-s.a,-(.25+open*1.05)*(0.6+0.4*s.prof),'YZX');
+ const k=.45+.75*s.prof;dm.scale.set(k,k,k);dm.updateMatrix();im.setMatrixAt(i,dm.matrix);
+ const j=(Math.sin(i*12.9898)*43758.5453)%1,jj=Math.abs(j);
+ col.copy(young).lerp(young2,jj*.35);const c2=brown.clone().lerp(brown2,jj*.5);col.lerp(c2,ripe);im.setColorAt(i,col)});
+ im.instanceMatrix.needsUpdate=true;if(im.instanceColor)im.instanceColor.needsUpdate=true};
+/* falling winged seeds */
+const seedG=new T.PlaneGeometry(.16,.3);const seedM=new T.MeshStandardMaterial({color:0xc79b62,side:T.DoubleSide,transparent:true,opacity:.95});
+const SN=26,seeds=new T.InstancedMesh(seedG,seedM,SN);g.add(seeds);
+const sd=[...Array(SN)].map((_,i)=>({y:Math.random()*-4,a:Math.random()*6.28,r:.6+Math.random()*.6,s:.5+Math.random()*.8,sp:Math.random()*6}));
+/* drifting needles bg */
+const pg=new T.BufferGeometry(),pp=new Float32Array(300*3);for(let i=0;i<pp.length;i++)pp[i]=(Math.random()-.5)*14;
+pg.setAttribute('position',new T.BufferAttribute(pp,3));
+const pts=new T.Points(pg,new T.PointsMaterial({color:0xe0c27a,size:.035,transparent:true,opacity:.6}));sc.add(pts);
+let rx=.25,ry=0,vy=RM?0:.004,drag=null;
+cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,ry,rx};cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{if(!drag)return;ry=drag.ry+(e.clientX-drag.x)*.01;rx=Math.max(-.6,Math.min(.9,drag.rx+(e.clientY-drag.y)*.006))});
+cv.addEventListener('pointerup',()=>drag=null);cv.addEventListener('pointercancel',()=>drag=null);
+$('#open').oninput=e=>target=e.target.value/100;
+const setR=v=>{ripeT=v;$('#young').classList.toggle('on',!v);$('#ripe').classList.toggle('on',!!v)};
+$('#young').onclick=()=>setR(0);$('#ripe').onclick=()=>{setR(1);if(target<.5){target=.75;$('#open').value=75}};
+const size=()=>{const w=cv.clientWidth,h=cv.clientHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();cam.position.z=w<500?11.5:9.5};
+const ro=new ResizeObserver(size);ro.observe(cv);size();
+let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(cv);
+let last=0;const tick=now=>{requestAnimationFrame(tick);if(!vis)return;const dt=Math.min(.05,(now-last)/1000||0);last=now;
+ let ch=false;if(Math.abs(open-target)>.001){open+=(target-open)*.08;ch=true}if(Math.abs(ripe-ripeT)>.001){ripe+=(ripeT-ripe)*.06;ch=true}if(ch)layout();
+ if(!drag)ry+=vy;g.rotation.set(rx,ry,0);g.position.y=RM?0:Math.sin(now/1600)*.08;
+ const show=open>.6;sd.forEach((s,i)=>{if(show){s.y-=dt*s.s;s.a+=dt*1.5;if(s.y<-4.5)s.y=Math.random()*2-1}
+  dm.position.set(Math.cos(s.a)*s.r*(1+(-s.y)*.25),s.y,Math.sin(s.a)*s.r*(1+(-s.y)*.25));dm.rotation.set(now/400+s.sp,now/300+s.sp,0);const k=show?1:0.0001;dm.scale.set(k,k,k);dm.updateMatrix();seeds.setMatrixAt(i,dm.matrix)});
+ seeds.instanceMatrix.needsUpdate=true;pts.rotation.y=now/40000;
+ ren.render(sc,cam)};
+layout();requestAnimationFrame(tick);
+}catch(err){cv.style.display='none';$('#fb').style.display='block'}}
+}
+</script>
+</body>
+</html>
